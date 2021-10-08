@@ -1,0 +1,40 @@
+
+# 1.Explaination of "Mortality"
+This picture shows the changes in child mortality between 0 and 5 years old between 2000 and 2010 in China and India. From this picture, we can see that the child mortality rate in both countries is showing a downward trend. But the difference between the two is that in 2000, Chinese child mortality rate was nearly five times lower than India’s. By 2010, India’s child mortality rate was still much lower than India’s. What makes me feel interesting is that after 2005, India’s child mortality rate still showed a rapid decline, while China’s child mortality rate showed a gentle decline between 2005 and 2010. I think that with the rapid developmet of Chinese society, the death rate of children aged from 0 to 5 year-old should show a faster decline over time, rather than a flat trend. Therefore, I think we can conduct an in-depth analysis of this part of the data to explore the reasons behind it.
+
+```{r echo=FALSE}
+library(ggplot2)
+year<-c(2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010)
+China<-c(34.2,31.5,28.9,26.3,24.0,21.9,20.1,18.5,17.0,15.8,14.6)
+India<-c(88.0,84.5,81.1,77.7,74.4,71.1,67.9,64.7,61.4,58.2,55.1)
+dd_1<-data.frame(year=year,China=China,India=India)
+ggplot(dd_1,aes(x = year,y = Mortality))+
+  geom_point(aes(y = China),)+
+  geom_line(aes(y = China,color="China"))+
+  geom_point(aes(y = India))+
+  geom_line(aes(y = India,color="India"))+
+  theme(plot.title = element_text(hjust = 0.5))
+```
+
+
+
+
+
+# 2.Explaination of "Population"
+The picture "Population" illustrate the total population changes in China and India from 2000 to 2010. It can be known that as the two super populous countries in the world, the populations of the two countries have shown an increasing trend in the past 10 years. Unlike China, India’s population growth rate is much higher than China’s. What’s interesting is that if India’s population growth follows this trend, India’s population is likely to approach or exceed China’s within the next 15 years. On the other hand, China’s population has obviously a stable trend during the two years from 2005 to 2007, it might be explained that China has issued some policies to control population.
+
+
+```{r echo=FALSE}
+# open Picture" Population"
+year<-c(2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010)
+China<-c(1300000000,1310000000,1320000000,1320000000,1330000000,1340000000,1350000000,1350000000,1360000000,1370000000,1380000000)
+India<-c(1080000000,1090000000,1110000000,1130000000,1150000000,1170000000,1180000000,1200000000,1220000000,1230000000,1250000000)
+dd_2<-data.frame(year=year,China=China,India=India)
+ggplot(dd_2,aes(x = year,y = Population))+
+    geom_point(aes(y = China),)+
+    geom_line(aes(y = China,color="China"))+
+    geom_point(aes(y = India))+
+    geom_line(aes(y = India,color="India"))+
+ theme(plot.title = element_text(hjust = 0.5))
+```
+
