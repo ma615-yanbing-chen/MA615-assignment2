@@ -1,3 +1,21 @@
+###########################
+#' The data has not been "wrangled" into one tidy dataset. We have a graph of 
+#' child mortality for China and India between 2000 and 2010. We have a 
+#' graph of population of China and India between 2000 and 2010. However, there 
+#' is no comparison between these two. Instead, it is currently in two different
+#' tibbles. That makes it so that we cannot easily use ggplot to create a plot 
+#' to display a comparison between the two sets of data.   
+#' Because there is no single tidy dataset, I cannot write a visualization 
+#' function to expand. Instead, I will suggest the author to do something 
+#' along the following lines: 
+#' mortality <- pivot_longer(!country, names_to = "year", values_to = "mortality")
+#' same for population
+#' tidy <- right_join(mortality, population)
+#' ggplot(tidy, aes(x = population, y = mortality, color = year)) + 
+#' geom_point() + 
+#' labs(etc)
+###########################
+
 # Data Visualization
 pacman::p_load("bayesplot","knitr","arm","ggplot2","rstanarm")
 library(pacman)
@@ -38,6 +56,7 @@ ggplot(dd_1,aes(x = year,y = Mortality))+
   labs(title = "The under 5-year-old Children's Mortality of two Countries", x = "Year",y ="Children Mortality")
   theme(plot.title = element_text(hjust = 0.5))
 
+  
 # The population of two countries
  ggplot(dd_2,aes(x = year,y = Population))+
     geom_point(aes(y = China),)+
